@@ -29,8 +29,7 @@ func showLoading(done chan bool) {
 		default:
 			color := colors[colorIdx%len(colors)]
 			symbol := fmt.Sprintf("\033[0;%dm %s \033[0m", color, strings.Repeat(".", numDots))
-
-			fmt.Printf("\r\033[0;%dmChatGPT 正在努力思考中\033[0m ", color)
+			fmt.Printf("\r\033[0;%dmChatGPT 正在努力思考中\033[0m", color)
 			fmt.Printf("%s", symbol)
 			colorIdx++
 
@@ -111,13 +110,12 @@ func main() {
 		fmt.Print("\033[0;32m请输入问题:\033[0m ")
 		fmt.Print("\033[0;33m")
 		scanner := bufio.NewScanner(os.Stdin)
-		scanner.Scan()              // 读取第一行数据，包含换行符
-		userInput := scanner.Text() // 获取第一行数据
+		userInput := ""
 		for scanner.Scan() {
-			userInput += "\n" + scanner.Text() // 将下一行文本添加到input中
+			userInput += scanner.Text() + "\n"
 		}
-		// 将所有的字符串连接为一行，并去掉连接处的空格
 		fmt.Print("\033[m")
+		fmt.Println()
 		if userInput != "" {
 			done := make(chan bool)
 			go func() {
