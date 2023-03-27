@@ -5,7 +5,6 @@
     该项目是一个在Terminal中使用chatgpt api进行交互的一个工具。
     本项目代码全部是chatgpt生成的，如果你有其他需要也可以自己让chatgpt接着改进。
     
-    
 ![image](https://github.com/aikin-vip/chatgpt-console/blob/main/preview.gif)
 
 ## 2. 项目使用
